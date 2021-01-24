@@ -1,0 +1,12 @@
+<h1><%= @user.name %></h1>
+
+<% if @current_user.present? && session[:user_id] == @user.id %>
+  <div class="controls">
+     <%= link_to "Edit account", edit_user_path(@user) %>
+     <%= link_to "Delete account", @user, :method => 'delete' %>
+  </div>
+<% end %>
+
+<% @user.photos.each do |photo| %>
+<%= link_to image_tag(photo.image, :class => 'thumb'), photo %>
+<% end %>

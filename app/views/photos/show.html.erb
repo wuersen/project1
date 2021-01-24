@@ -1,0 +1,14 @@
+<%= link_to image_tag(@photo.image, :class => 'feature'), @photo %>
+<p><%= link_to @user.name, @user %> <%= @photo.description %></p>
+
+
+<% @photo.comments.each do |comment| %>
+  <p><%= comment.content %></p>
+<% end %>
+
+<% if @current_user.present? && session[:user_id] == @user.id %>
+  <div class="controls">
+     <%= link_to "Edit photo", edit_photo_path(@photo) %>
+     <%= link_to "Delete photo", @photo, :method => 'delete' %>
+  </div>
+<% end %>

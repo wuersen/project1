@@ -1,0 +1,13 @@
+<h1>Pinstagram</h1>
+
+
+
+<% if @current_user.present? %>
+  <p>
+     Welcome back <%= @current_user.name%>
+  </p>
+<% end %>
+
+<% @photos.each do |photo| %>
+<%= link_to image_tag(photo.image, :class => 'feature'), photo %>
+<% end %>
