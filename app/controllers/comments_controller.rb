@@ -14,14 +14,16 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @comment = Comment.find params[:id]
+  @photo = Photo.find(params[:photo_id])
+  @comment = Comment.find params[:id]
+
   end
 
   def update
-    comment = Comment.find params[:id]
-    comment.update comment_params
-    photo = comment.photo
-    redirect_to photo_path(photo.id)
+  photo = Photo.find(params[:photo_id])
+  comment = Comment.find params[:id]
+  comment.update comment_params
+  redirect_to photo_path(photo.id)
   end
 
   def show

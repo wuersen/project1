@@ -1,7 +1,8 @@
-<h1>Edit Comment</h1>
+<h1>Edit comment</h1>
 
-<%= form_for [@comment.photo, @comment] do |f|%>
+<%=form_for([@comment.photo, @comment]) do |f| %>
+
 <%= f.label :Comment %>
 <%= f.text_field :content %>
-<%= f.submit %>
+<%= f.submit 'Update comment'%>
 <% end %>

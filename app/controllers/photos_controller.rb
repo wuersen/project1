@@ -31,7 +31,7 @@ class PhotosController < ApplicationController
     @photo = Photo.find params[:id]
     @user = @photo.user
 
-    session[:grab_photo_id] = @photo.id
+    
 
 
   end
