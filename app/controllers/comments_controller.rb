@@ -1,10 +1,7 @@
 class CommentsController < ApplicationController
-  def index
-  end
+  before_action :check_for_comment_owner, :only => [:edit, :destroy]
 
-  def new
 
-  end
 
   def create
     @photo = Photo.find(params[:photo_id])

@@ -20,4 +20,11 @@ class ApplicationController < ActionController::Base
     photo = Photo.find params[:id]
     redirect_to login_path unless session[:user_id] == photo.user.id
   end
+
+  def check_for_comment_owner
+    comment = Comment.find params[:id]
+    redirect_to login_path unless session[:user_id] == comment.user.id
+
+
+  end
 end

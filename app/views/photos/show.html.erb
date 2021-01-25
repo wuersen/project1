@@ -10,13 +10,15 @@
 <p><%= link_to @user.name, @user %> <%= @photo.description %></p>
 
 <h2><%= @photo.comments.count %> comments</h2>
+
 <% @photo.comments.each do |comment| %>
   <p><%= comment.user.name %>: <%= comment.content %>  </p>
   <div class="controls">
 
-   <%= link_to "Edit comment", edit_photo_comment_path(@photo.id, comment.id ) %>
-   <%= link_to "Delete comment", [comment.photo, comment], :method => 'delete' %>
-
+    <% if @current_user.present? && session[:user_id] == comment.user.id %>
+      <%= link_to "Edit comment", edit_photo_comment_path(@photo.id, comment.id ) %>
+      <%= link_to "Delete comment", [comment.photo, comment], :method => 'delete' %>
+    <% end %>
   </div>
 <% end %>
 
