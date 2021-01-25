@@ -1,10 +1,4 @@
 <%= link_to image_tag(@photo.image, :class => 'feature'), @photo %>
-<p><%= link_to @user.name, @user %> <%= @photo.description %></p>
-
-
-<% @photo.comments.each do |comment| %>
-  <p><%= comment.content %></p>
-<% end %>
 
 <% if @current_user.present? && session[:user_id] == @user.id %>
   <div class="controls">
@@ -12,3 +6,22 @@
      <%= link_to "Delete photo", @photo, :method => 'delete' %>
   </div>
 <% end %>
+
+<p><%= link_to @user.name, @user %> <%= @photo.description %></p>
+
+<h2><%= @photo.comments.count %> comments</h2>
+<% @photo.comments.each do |comment| %>
+  <p><%= comment.user.name %>: <%= comment.content %>  </p>
+  <div class="controls">
+   <%= link_to "Edit comment", edit_photo_comment_path(comment.id) %>
+   <%= link_to "Delete comment", [comment.photo, comment], :method => 'delete' %>
+
+  </div>
+<% end %>
+
+
+
+<div class="comment-form">
+
+  <%= render 'comments/form' %>
+</div>
