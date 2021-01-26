@@ -7,13 +7,24 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&display=swap');
+    </style>
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Lobster+Two:wght@700&display=swap');
+    </style>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+    </style>
   </head>
 
   <body>
+    <div class="container">
     <nav>
       <%= link_to 'Home', root_path %>
         <% if @current_user.present? %>
-      
+
            <%= link_to "New Photo", new_photo_path %>
            <%= link_to "All users", users_path %>
            <%= link_to "All photos", photos_path %>
@@ -26,5 +37,6 @@
        <% end %>
     </nav>
     <%= yield %>
+   </div>
   </body>
 </html>

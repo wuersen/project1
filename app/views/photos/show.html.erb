@@ -9,11 +9,11 @@
 
 <p><%= link_to @user.name, @user %> <%= @photo.description %></p>
 
-<h2><%= @photo.comments.count %> comments</h2>
+<h2><%= pluralize(@photo.comments.count, "comment") %></h2>
 
 <% @photo.comments.each do |comment| %>
-  <p><%= comment.user.name %>: <%= comment.content %>  </p>
-  <div class="controls">
+  <p><%= comment.user.name %> [<%=comment.updated_at.strftime("%e-%b-%Y %H:%M ")%>]: <%= comment.content %>  </p>
+  <div class="comment_controls">
 
     <% if @current_user.present? && session[:user_id] == comment.user.id %>
       <%= link_to "Edit comment", edit_photo_comment_path(@photo.id, comment.id ) %>
