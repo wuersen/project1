@@ -1,6 +1,6 @@
 User.destroy_all
-u1 = User.create :name => 'user1', :email => 'user1@gmail.com', :password => 'chicken'
-u2 = User.create :name => 'user2', :email => 'user2@gmail.com', :password => 'chicken'
+u1 = User.create :name => 'user1', :email => 'user1@gmail.com', :password => 'chicken', :image => 'https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308460-stock-illustration-unknown-person-silhouette-profile-picture.jpg'
+u2 = User.create :name => 'user2', :email => 'user2@gmail.com', :password => 'chicken', :image => 'https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308460-stock-illustration-unknown-person-silhouette-profile-picture.jpg'
 puts "#{User.count} users"
 
 Photo.destroy_all

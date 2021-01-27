@@ -1,4 +1,4 @@
-<%= link_to image_tag(@photo.image, :class => 'feature'), @photo %>
+<%= image_tag @photo.image, :class => 'feature' %>
 
 <% if @current_user.present? && session[:user_id] == @user.id %>
   <div class="controls">
@@ -7,24 +7,28 @@
   </div>
 <% end %>
 
-<p><%= link_to @user.name, @user %> <%= @photo.description %></p>
-
-<h2><%= pluralize(@photo.comments.count, "comment") %></h2>
-
-<% @photo.comments.each do |comment| %>
-  <p><%= comment.user.name %> [<%=comment.updated_at.strftime("%e-%b-%Y %H:%M ")%>]: <%= comment.content %>  </p>
-  <div class="comment_controls">
-
-    <% if @current_user.present? && session[:user_id] == comment.user.id %>
-      <%= link_to "Edit comment", edit_photo_comment_path(@photo.id, comment.id ) %>
-      <%= link_to "Delete comment", [comment.photo, comment], :method => 'delete' %>
-    <% end %>
-  </div>
-<% end %>
+<p class="user_below_photo">
+  <%= image_tag @user.image, :class => 'profile', :alt => @user.name %> <%= link_to @user.name, @user %> <%= @photo.description %></p>
 
 
 
-<div class="comment-form">
+<div class="comment-section">
+    <h2><%= pluralize(@photo.comments.count, "comment") %></h2>
+    <% @photo.comments.each do |comment| %>
+       <p>
+         <%= image_tag @user.image, :class => 'profile', :alt => @user.name %><%= comment.user.name %> [<%=comment.updated_at.strftime("%e-%b-%Y %H:%M ")%>]: <%= comment.content %>
+       </p>
+       <div class="comment_controls">
 
-  <%= render 'comments/form' %>
+         <% if @current_user.present? && session[:user_id] == comment.user.id %>
+         <%= link_to "Edit comment", edit_photo_comment_path(@photo.id, comment.id ) %>
+         <%= link_to "Delete comment", [comment.photo, comment], :method => 'delete' %>
+         <% end %>
+      </div>
+  <% end %>
+
+    <div class="comment-form">
+        <%= render 'comments/form' %>
+    </div>
+
 </div>

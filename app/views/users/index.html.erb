@@ -1,7 +1,7 @@
 <h1>All Users</h1>
 <% @users.each do |user| %>
   <p>
-    Name <%= link_to user.name, user %>
+      <%= image_tag user.image, :class => 'profile', :alt => user.name %> <%= link_to user.name, user %>
   </p>
 
     <% user.photos.each do |photo| %>
