@@ -16,7 +16,7 @@
     <h4><%= pluralize(@photo.comments.count, "comment") %></h4>
     <% @photo.comments.each do |comment| %>
        <p>
-         <%= cl_image_tag @current_user.image, :class => 'profile_s', :alt => @current_user.id %> <%= link_to @current_user.name, @current_user %> [<%=comment.updated_at.strftime("%e-%b-%Y %H:%M ")%>]: <%= comment.content %>
+         <%= cl_image_tag comment.user.image, :class => 'profile_s', :alt => comment.user.id %> <%= link_to comment.user.name, comment.user %> [<%=comment.updated_at.strftime("%e-%b-%Y %H:%M ")%>]: <%= comment.content %>
        </p>
        <div class="comment_controls">
 

@@ -7,5 +7,5 @@
 <% end %>
 
 <% @photos.each do |photo| %>
-<%= link_to cl_image_tag(photo.image, :class => 'feature'), photo %>
+<%= link_to cl_image_tag(photo.image, :class => 'thumb'), photo %>
 <% end %>
