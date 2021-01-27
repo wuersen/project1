@@ -1,4 +1,4 @@
-<%= image_tag @photo.image, :class => 'feature' %>
+<%= cl_image_tag @photo.image, :class => 'feature' %>
 
 <% if @current_user.present? && session[:user_id] == @user.id %>
   <div class="controls">
@@ -8,15 +8,15 @@
 <% end %>
 
 <p class="user_below_photo">
-  <%= image_tag @user.image, :class => 'profile', :alt => @user.name %> <%= link_to @user.name, @user %> <%= @photo.description %></p>
+  <%= cl_image_tag @user.image, :class => 'profile', :alt => @user.name %> <%= link_to @user.name, @user %> <%= @photo.description %></p>
 
 
 
 <div class="comment-section">
-    <h2><%= pluralize(@photo.comments.count, "comment") %></h2>
+    <h4><%= pluralize(@photo.comments.count, "comment") %></h4>
     <% @photo.comments.each do |comment| %>
        <p>
-         <%= image_tag @user.image, :class => 'profile', :alt => @user.name %><%= comment.user.name %> [<%=comment.updated_at.strftime("%e-%b-%Y %H:%M ")%>]: <%= comment.content %>
+         <%= cl_image_tag @current_user.image, :class => 'profile_s', :alt => @current_user.id %> <%= link_to @current_user.name, @current_user %> [<%=comment.updated_at.strftime("%e-%b-%Y %H:%M ")%>]: <%= comment.content %>
        </p>
        <div class="comment_controls">
 

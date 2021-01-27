@@ -1,10 +1,10 @@
 <h1>All Users</h1>
 <% @users.each do |user| %>
   <p>
-      <%= image_tag user.image, :class => 'profile', :alt => user.name %> <%= link_to user.name, user %>
+      <%= cl_image_tag user.image, :class => 'profile', :alt => user.name %> <%= link_to user.name, user %>
   </p>
 
     <% user.photos.each do |photo| %>
-    <%= link_to image_tag(photo.image, :class => 'thumb'), photo %>
+    <%= link_to cl_image_tag(photo.image, :class => 'thumb'), photo %>
     <% end %>
 <% end %>

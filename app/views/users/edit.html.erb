@@ -8,7 +8,7 @@
 </ol>
 <% end %>
 
-<%= form_for @user do |f| %>
+<%= form_for(@user, :html => {:multipart => true}) do |f| %>
 <div class="form-group">
   <%= f.label :Nickname%>
   <%= f.text_field :name, :required => true, :class => 'form-control' %>
@@ -16,7 +16,7 @@
 
 <div class="form-group">
   <%= f.label :image%>
-  <%= f.text_field :image, :class => 'form-control', :placeholder => 'http....(optional)' %>
+  <%= f.cl_image_upload :image, :class => 'form-control' %>
 </div>
 
 <div class="form-group">
@@ -29,10 +29,6 @@
   <%= f.password_field :password, :class => 'form-control' %>
 </div>
 
-<div class="form-group">
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, :class => 'form-control' %>
-</div>
-  <%= f.submit "Sign up!", :class=>"btn btn-primary" %>
+<%= f.submit "Save", :class=>"btn btn-primary" %>
 
 <% end %>

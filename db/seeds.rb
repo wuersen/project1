@@ -1,16 +1,16 @@
 User.destroy_all
-u1 = User.create :name => 'user1', :email => 'user1@gmail.com', :password => 'chicken', :image => 'https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308460-stock-illustration-unknown-person-silhouette-profile-picture.jpg'
-u2 = User.create :name => 'user2', :email => 'user2@gmail.com', :password => 'chicken', :image => 'https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308460-stock-illustration-unknown-person-silhouette-profile-picture.jpg'
+u1 = User.create :name => 'user1', :email => 'user1@gmail.com', :password => 'chicken', :image => 'rl0tqjkkidfbrjxxtdxu'
+u2 = User.create :name => 'user2', :email => 'user2@gmail.com', :password => 'chicken', :image => 'rl0tqjkkidfbrjxxtdxu'
 puts "#{User.count} users"
 
 Photo.destroy_all
-p1 = Photo.create :image => 'https://cdn.naturettl.com/wp-content/uploads/2020/04/25152036/how-to-find-great-locations-for-landscape-photography-11-600x315-cropped.jpg', :description => 'Ocean Sunset'
+p1 = Photo.create :image => 'bf0auxd2cqywjnz6pcpb', :description => 'Ocean Sunset'
 
-p2 = Photo.create :image => 'https://www.photoblog.com/learn/wp-content/uploads/2018/12/erin-babnik-photography-990x556.jpg', :description => 'Desert Flower'
+p2 = Photo.create :image => 'bf0auxd2cqywjnz6pcpb', :description => 'Desert Flower'
 
-p3 = Photo.create :image => 'https://cdn.theatlantic.com/thumbor/SqC3OHn5MBkdxUpYMSMKmddbD_w=/600x444/media/img/photo/2020/11/top-shots-2020-international-landsc/a01_Yuen_MagicalNight/original.jpg', :description => 'Magic Night'
+p3 = Photo.create :image => 'bf0auxd2cqywjnz6pcpb', :description => 'Magic Night'
 
-p4 = Photo.create :image => 'https://photographylife.com/wp-content/uploads/2018/05/Hot-Air-Balloons-in-a-line.jpg', :description => 'Hotair Balloon'
+p4 = Photo.create :image => 'bf0auxd2cqywjnz6pcpb', :description => 'Hotair Balloon'
 puts "#{Photo.count} photos"
 
 Comment.destroy_all
