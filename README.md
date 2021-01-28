@@ -7,3 +7,5 @@
 *Boostrap used for css styling as well as vanila css
 
 *Cloudinary used for image uploading
+
+*Deployed with Heroku
