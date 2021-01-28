@@ -4,6 +4,8 @@
 
 *3 modles: Users, Photos and Comments
 
+*Database management system: Postgresql
+
 *Boostrap used for css styling as well as vanila css
 
 *Cloudinary used for image uploading
