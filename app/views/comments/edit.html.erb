@@ -1,8 +1,7 @@
-<h1>Edit comment</h1>
-
 <%=form_for([@comment.photo, @comment]) do |f| %>
 
-<%= f.label :Comment %>
-<%= f.text_field :content %>
-<%= f.submit 'Update comment'%>
+<div class="edit-comment">
+   <%= f.text_field :content, :class =>"form-control form-control-lg" %>
+   <%= f.submit 'Update comment', :class=>"btn btn-outline-primary" %>
+</div>
 <% end %>

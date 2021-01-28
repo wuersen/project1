@@ -2,12 +2,20 @@
 
 <%= form_for(@photo, :html => {:multipart => true}) do |f| %>
 
-<%= f.label :image %>
-<%= f.cl_image_upload :image, :required => true%>
+<div class="mb-3">
+  <%= f.label :image, :class => "form-label"%>
+  <div class="form-File">
+    <br><%= f.cl_image_upload :image %>
+  </div>
+</div>
 
-<%= f.label :description %>
-<%= f.text_field :description %>
+<div class="form-group">
+  <%= f.label :description %>
+  <%= f.text_field :description, :class => 'form-control' %>
+</div>
 
 
-<%= f.submit 'post photo'%>
+
+
+<%= f.submit 'post photo', :class=>"btn btn-outline-primary" %>
 <% end %>

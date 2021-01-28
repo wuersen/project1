@@ -1,14 +1,18 @@
-<h1>
-  <%= cl_image_tag @user.image, :class => 'profile', :alt => @user.name %><%= @user.name %>
+<h1 class ="user-show">
+  <%= cl_image_tag @user.image, :class => 'profile', :alt => @user.name %> <%= @user.name %>
 </h1>
 
 <% if @current_user.present? && session[:user_id] == @user.id %>
-  <div class="controls">
-     <%= link_to "Edit account", edit_user_path(@user) %>
-     <%= link_to "Delete account", @user, :method => 'delete' %>
+  <div class="user-show-controls">
+     <%= link_to "✎ Edit account", edit_user_path(@user) %>
+     <%= link_to "✕ Delete account", @user, :method => 'delete' %>
   </div>
 <% end %>
 
 <% @user.photos.each do |photo| %>
 <%= link_to cl_image_tag(photo.image, :class => 'thumb'), photo %>
 <% end %>
+
+<div class="bottom-space-user">
+
+</div>

@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_action :check_for_login, :only => [:new, :create, :show, :edit]
+  before_action :check_for_login, :only => [:new, :create, :edit]
   before_action :check_for_photo_owner, :only => [:edit, :destroy]
 
   def index
@@ -23,6 +23,11 @@ class PhotosController < ApplicationController
     redirect_to photo_path(photo)
   end
 
+  def show
+    @photo = Photo.find params[:id]
+    @user = @photo.user
+  end
+
   def edit
     @photo = Photo.find params[:id]
   end
@@ -40,14 +45,7 @@ class PhotosController < ApplicationController
     redirect_to photo
   end
 
-  def show
-    @photo = Photo.find params[:id]
-    @user = @photo.user
 
-
-
-
-  end
 
   def destroy
     photo = Photo.find params[:id]

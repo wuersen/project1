@@ -15,22 +15,25 @@
 
   <body>
     <div class="container">
-    <nav>
+       <nav>
 
-        <% if @current_user.present? %>
-          <%= link_to (image_tag 'home.png', :class => 'nav_image'), root_path %>
-           <%= link_to (image_tag 'users.png', :class => 'nav_image'), users_path %>
-            <%= link_to (image_tag 'new.png', :class => 'nav_new'), new_photo_path %>
-           <%= link_to (image_tag 'account.png', :class => 'nav_image'), user_path(@current_user.id) %>
-           <%= link_to (image_tag 'logout.png', :class => 'nav_image'), login_path, :method => 'delete' %>
-      
-        <% else %>
-          <%= link_to 'Sign up', new_user_path %>
-          |
-          <%= link_to 'Login', login_path %>
-       <% end %>
-    </nav>
+          <% if @current_user.present? %>
+             <%= link_to (image_tag 'home.png', :class => 'nav_image'), root_path %>
+             <%= link_to (image_tag 'users.png', :class => 'nav_image'), users_path %>
+             <%= link_to (image_tag 'new.png', :class => 'nav_new'), new_photo_path %>
+             <%= link_to (image_tag 'account.png', :class => 'nav_image'), user_path(@current_user.id) %>
+             <%= link_to (image_tag 'logout.png', :class => 'nav_image'), login_path, :method => 'delete' %>
+
+         <% else %>
+             <%= link_to 'Sign up', new_user_path %>
+          |  <%= link_to 'Login', login_path %>
+         <% end %>
+      </nav>
     <%= yield %>
+
+     <div class="bottom-space"></div>
    </div>
+
+
   </body>
 </html>

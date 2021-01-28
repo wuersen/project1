@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :check_for_login, :only => [:create, :edit, :destroy]
   before_action :check_for_comment_owner, :only => [:edit, :destroy]
 
 

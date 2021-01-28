@@ -2,10 +2,18 @@
 
 
 
-<% if @current_user.present? %>
 
-<% end %>
 
 <% @photos.each do |photo| %>
-<%= link_to cl_image_tag(photo.image, :class => 'thumb'), photo %>
+  <div class="container_home">
+          <div class="home_top">
+            <%= cl_image_tag photo.user.image, :class => 'profile', :alt => photo.user.name %> <%= link_to photo.user.name, photo.user %>
+          </div>
+    <%= link_to cl_image_tag(photo.image, :class => 'photo_home'), photo %>
+          <div class="home_bottom">
+            ♡ ✎
+            <br><%= photo.description %>
+          </div>
+
+   </div>
 <% end %>
