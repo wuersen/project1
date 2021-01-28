@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+*Its my first project using Ruby on Rails, ruby version - 2.7.2
 
-Things you may want to cover:
+*3 modles: Users, Photos and Comments
 
-* Ruby version
+*Boostrap used for css styling as well as vanila css
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+*Cloudinary used for image uploading
